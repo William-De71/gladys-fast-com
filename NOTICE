@@ -1,0 +1,11 @@
+Gladys Fast.com integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The measurement reproduces what the public web client of https://fast.com
+does (server list, timed downloads, uploads and latency probes). No Netflix
+code or asset is included.
+
+Fast.com and Netflix are trademarks of Netflix, Inc. This community
+integration is not affiliated with, endorsed or sponsored by Netflix.

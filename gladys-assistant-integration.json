@@ -1,0 +1,1026 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Fast.com",
+  "description": {
+    "en": "Your internet speed measured by Fast.com (Netflix) on a schedule: download, upload, latency.",
+    "fr": "Le débit de votre connexion mesuré par Fast.com (Netflix) : descendant, montant, latence.",
+    "de": "Internetgeschwindigkeit regelmäßig mit Fast.com (Netflix) messen: Download, Upload, Latenz.",
+    "es": "La velocidad de tu conexión medida por Fast.com (Netflix): descarga, subida, latencia."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-fast-com:0.1.0",
+  "gladys_version": ">=5.1.0",
+  "categories": ["network", "services"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-fast-com/main/cover.jpg",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "How it measures",
+        "fr": "Comment ça mesure",
+        "de": "So wird gemessen",
+        "es": "Cómo mide"
+      },
+      "description": {
+        "en": "No account and no key: like the fast.com page, the integration downloads then uploads data from the Netflix servers closest to your line, and times their answers. A test lasts 15 to 40 seconds and moves a lot of data on a fast line (about 1.3 GB at 1 Gbit/s): keep the interval reasonable on a capped or 4G connection. Other devices using the line during a test lower the result.",
+        "fr": "Ni compte ni clé : comme la page fast.com, l’intégration télécharge puis envoie des données vers les serveurs Netflix les plus proches de votre ligne, et chronomètre leurs réponses. Un test dure 15 à 40 secondes et consomme beaucoup sur une ligne rapide (environ 1,3 Go à 1 Gbit/s) : gardez un intervalle raisonnable sur une connexion limitée ou 4G. Les autres appareils qui utilisent la ligne pendant un test font baisser le résultat.",
+        "de": "Kein Konto und kein Schlüssel: Wie die Seite fast.com lädt die Integration Daten von den Netflix-Servern herunter, die deiner Leitung am nächsten sind, lädt dann Daten hoch und misst die Antwortzeiten. Ein Test dauert 15 bis 40 Sekunden und überträgt auf einer schnellen Leitung viele Daten (etwa 1,3 GB bei 1 Gbit/s): Wähle bei einem begrenzten Tarif oder 4G ein vernünftiges Intervall. Andere Geräte, die die Leitung während eines Tests nutzen, senken das Ergebnis.",
+        "es": "Sin cuenta ni clave: como la página fast.com, la integración descarga y luego sube datos a los servidores de Netflix más cercanos a tu línea, y cronometra sus respuestas. Una prueba dura de 15 a 40 segundos y consume mucho en una línea rápida (unos 1,3 GB a 1 Gbit/s): mantén un intervalo razonable con una conexión limitada o 4G. Los demás dispositivos que usan la línea durante una prueba bajan el resultado."
+      },
+      "links": [
+        {
+          "url": "https://fast.com",
+          "label": {
+            "en": "Fast.com",
+            "fr": "Fast.com",
+            "de": "Fast.com",
+            "es": "Fast.com"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-fast-com/blob/main/docs/en.md",
+          "label": {
+            "en": "Documentation",
+            "fr": "Documentation",
+            "de": "Dokumentation",
+            "es": "Documentación"
+          }
+        }
+      ]
+    },
+    {
+      "key": "test_interval",
+      "type": "select",
+      "label": {
+        "en": "Automatic test",
+        "fr": "Test automatique",
+        "de": "Automatischer Test",
+        "es": "Prueba automática"
+      },
+      "description": {
+        "en": "How often a test runs on its own. \"Disabled\": only from the widget, a scene or the button below.",
+        "fr": "Fréquence des tests lancés tout seuls. « Désactivé » : uniquement depuis le widget, une scène ou le bouton ci-dessous.",
+        "de": "Wie oft ein Test von selbst läuft. „Deaktiviert“: nur über das Widget, eine Szene oder die Schaltfläche unten.",
+        "es": "Con qué frecuencia se lanza una prueba sola. «Desactivada»: solo desde el widget, una escena o el botón de abajo."
+      },
+      "options": [
+        {
+          "value": "30",
+          "label": {
+            "en": "Every 30 minutes",
+            "fr": "Toutes les 30 minutes",
+            "de": "Alle 30 Minuten",
+            "es": "Cada 30 minutos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "Every hour",
+            "fr": "Toutes les heures",
+            "de": "Stündlich",
+            "es": "Cada hora"
+          }
+        },
+        {
+          "value": "120",
+          "label": {
+            "en": "Every 2 hours",
+            "fr": "Toutes les 2 heures",
+            "de": "Alle 2 Stunden",
+            "es": "Cada 2 horas"
+          }
+        },
+        {
+          "value": "180",
+          "label": {
+            "en": "Every 3 hours",
+            "fr": "Toutes les 3 heures",
+            "de": "Alle 3 Stunden",
+            "es": "Cada 3 horas"
+          }
+        },
+        {
+          "value": "360",
+          "label": {
+            "en": "Every 6 hours",
+            "fr": "Toutes les 6 heures",
+            "de": "Alle 6 Stunden",
+            "es": "Cada 6 horas"
+          }
+        },
+        {
+          "value": "720",
+          "label": {
+            "en": "Every 12 hours",
+            "fr": "Toutes les 12 heures",
+            "de": "Alle 12 Stunden",
+            "es": "Cada 12 horas"
+          }
+        },
+        {
+          "value": "1440",
+          "label": {
+            "en": "Once a day",
+            "fr": "Une fois par jour",
+            "de": "Einmal täglich",
+            "es": "Una vez al día"
+          }
+        },
+        {
+          "value": "0",
+          "label": {
+            "en": "Disabled",
+            "fr": "Désactivé",
+            "de": "Deaktiviert",
+            "es": "Desactivada"
+          }
+        }
+      ],
+      "default": "180",
+      "required": false
+    },
+    {
+      "key": "max_duration",
+      "type": "select",
+      "label": {
+        "en": "Maximum duration per direction",
+        "fr": "Durée maximale par sens",
+        "de": "Maximale Dauer pro Richtung",
+        "es": "Duración máxima por sentido"
+      },
+      "description": {
+        "en": "Download, then upload: each one stops as soon as the speed is stable, at this duration at most. Shorter uses less data, longer is steadier on unstable lines.",
+        "fr": "Descendant, puis montant : chacun s’arrête dès que le débit est stable, au plus tard après cette durée. Plus court consomme moins, plus long est plus régulier sur une ligne instable.",
+        "de": "Download, dann Upload: Jede Messung endet, sobald die Geschwindigkeit stabil ist, spätestens nach dieser Dauer. Kürzer verbraucht weniger Daten, länger ist bei instabilen Leitungen gleichmäßiger.",
+        "es": "Descarga y luego subida: cada una se detiene en cuanto la velocidad es estable, como mucho tras esta duración. Más corta consume menos, más larga es más regular en líneas inestables."
+      },
+      "options": [
+        {
+          "value": "10",
+          "label": {
+            "en": "10 seconds",
+            "fr": "10 secondes",
+            "de": "10 Sekunden",
+            "es": "10 segundos"
+          }
+        },
+        {
+          "value": "15",
+          "label": {
+            "en": "15 seconds",
+            "fr": "15 secondes",
+            "de": "15 Sekunden",
+            "es": "15 segundos"
+          }
+        },
+        {
+          "value": "20",
+          "label": {
+            "en": "20 seconds",
+            "fr": "20 secondes",
+            "de": "20 Sekunden",
+            "es": "20 segundos"
+          }
+        },
+        {
+          "value": "30",
+          "label": {
+            "en": "30 seconds",
+            "fr": "30 secondes",
+            "de": "30 Sekunden",
+            "es": "30 segundos"
+          }
+        }
+      ],
+      "default": "15",
+      "required": false
+    },
+    {
+      "key": "measure_upload",
+      "type": "boolean",
+      "label": {
+        "en": "Measure the upload too",
+        "fr": "Mesurer aussi le débit montant",
+        "de": "Auch den Upload messen",
+        "es": "Medir también la subida"
+      },
+      "description": {
+        "en": "Off: download and latency only, about half the data.",
+        "fr": "Désactivé : débit descendant et latence uniquement, environ moitié moins de données.",
+        "de": "Aus: nur Download und Latenz, etwa die Hälfte der Daten.",
+        "es": "Desactivado: solo descarga y latencia, aproximadamente la mitad de datos."
+      },
+      "default": true,
+      "required": false
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the feature names",
+        "fr": "Langue des noms de fonctionnalités",
+        "de": "Sprache der Funktionsnamen",
+        "es": "Idioma de los nombres de funciones"
+      },
+      "description": {
+        "en": "Names given to the device features when you add it. Automatic: the language of your dashboard, once the widget has been displayed.",
+        "fr": "Noms donnés aux fonctionnalités de l’appareil quand vous l’ajoutez. Automatique : la langue de votre tableau de bord, dès que le widget a été affiché.",
+        "de": "Namen der Gerätefunktionen beim Hinzufügen. Automatisch: die Sprache deines Dashboards, sobald das Widget angezeigt wurde.",
+        "es": "Nombres de las funciones del dispositivo al añadirlo. Automático: el idioma de tu panel, en cuanto se haya mostrado el widget."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch",
+            "es": "Inglés"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch",
+            "es": "Francés"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch",
+            "es": "Alemán"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Spanish",
+            "fr": "Espagnol",
+            "de": "Spanisch",
+            "es": "Español"
+          }
+        }
+      ],
+      "default": "auto",
+      "required": false
+    }
+  ],
+  "actions": [
+    {
+      "key": "run_test",
+      "label": {
+        "en": "Run a test now",
+        "fr": "Lancer un test maintenant",
+        "de": "Jetzt einen Test starten",
+        "es": "Iniciar una prueba ahora"
+      },
+      "description": {
+        "en": "15 to 40 seconds; the result is shown at the end.",
+        "fr": "15 à 40 secondes ; le résultat s’affiche à la fin.",
+        "de": "15 bis 40 Sekunden; das Ergebnis erscheint am Ende.",
+        "es": "De 15 a 40 segundos; el resultado aparece al final."
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "key": "diagnostic",
+      "label": {
+        "en": "Diagnostic",
+        "fr": "Diagnostic",
+        "de": "Diagnose",
+        "es": "Diagnóstico"
+      },
+      "description": {
+        "en": "Writes the state of the integration to its logs (Settings → System), without IP address, for a bug report.",
+        "fr": "Écrit l’état de l’intégration dans ses journaux (Paramètres → Système), sans adresse IP, pour un rapport de bug.",
+        "de": "Schreibt den Zustand der Integration in ihre Protokolle (Einstellungen → System), ohne IP-Adresse, für einen Fehlerbericht.",
+        "es": "Escribe el estado de la integración en sus registros (Ajustes → Sistema), sin dirección IP, para un informe de error."
+      },
+      "timeout_seconds": 10
+    }
+  ],
+  "widgets": [
+    {
+      "key": "speedtest",
+      "label": {
+        "en": "Internet speed",
+        "fr": "Débit Internet",
+        "de": "Internetgeschwindigkeit",
+        "es": "Velocidad de Internet"
+      },
+      "description": {
+        "en": "Last Fast.com test, history of the speeds or of the latency, and a button to run a test.",
+        "fr": "Dernier test Fast.com, historique des débits ou de la latence, et un bouton pour lancer un test.",
+        "de": "Letzter Fast.com-Test, Verlauf der Geschwindigkeit oder Latenz und eine Schaltfläche für einen Test.",
+        "es": "Última prueba de Fast.com, historial de velocidades o latencia y un botón para lanzar una prueba."
+      },
+      "icon": "activity",
+      "action_timeout_seconds": 10,
+      "settings": [
+        {
+          "key": "chart",
+          "type": "select",
+          "label": {
+            "en": "Chart",
+            "fr": "Graphique",
+            "de": "Diagramm",
+            "es": "Gráfico"
+          },
+          "description": {
+            "en": "Needs the Fast.com device to be added (it keeps the history).",
+            "fr": "Nécessite d’avoir ajouté l’appareil Fast.com (il garde l’historique).",
+            "de": "Das Gerät Fast.com muss hinzugefügt sein (es speichert den Verlauf).",
+            "es": "Requiere haber añadido el dispositivo Fast.com (guarda el historial)."
+          },
+          "options": [
+            {
+              "value": "speeds",
+              "label": {
+                "en": "Download and upload",
+                "fr": "Débits descendant et montant",
+                "de": "Download und Upload",
+                "es": "Descarga y subida"
+              }
+            },
+            {
+              "value": "latency",
+              "label": {
+                "en": "Latency and jitter",
+                "fr": "Latence et gigue",
+                "de": "Latenz und Jitter",
+                "es": "Latencia y fluctuación"
+              }
+            },
+            {
+              "value": "none",
+              "label": {
+                "en": "No chart",
+                "fr": "Pas de graphique",
+                "de": "Kein Diagramm",
+                "es": "Sin gráfico"
+              }
+            }
+          ],
+          "default": "speeds",
+          "required": false
+        },
+        {
+          "key": "interval",
+          "type": "select",
+          "label": {
+            "en": "Period of the chart",
+            "fr": "Période du graphique",
+            "de": "Zeitraum des Diagramms",
+            "es": "Periodo del gráfico"
+          },
+          "options": [
+            {
+              "value": "last-day",
+              "label": {
+                "en": "Last 24 hours",
+                "fr": "Dernières 24 heures",
+                "de": "Letzte 24 Stunden",
+                "es": "Últimas 24 horas"
+              }
+            },
+            {
+              "value": "last-three-days",
+              "label": {
+                "en": "Last 3 days",
+                "fr": "3 derniers jours",
+                "de": "Letzte 3 Tage",
+                "es": "Últimos 3 días"
+              }
+            },
+            {
+              "value": "last-week",
+              "label": {
+                "en": "Last week",
+                "fr": "Dernière semaine",
+                "de": "Letzte Woche",
+                "es": "Última semana"
+              }
+            },
+            {
+              "value": "last-month",
+              "label": {
+                "en": "Last month",
+                "fr": "Dernier mois",
+                "de": "Letzter Monat",
+                "es": "Último mes"
+              }
+            },
+            {
+              "value": "last-three-months",
+              "label": {
+                "en": "Last 3 months",
+                "fr": "3 derniers mois",
+                "de": "Letzte 3 Monate",
+                "es": "Últimos 3 meses"
+              }
+            }
+          ],
+          "default": "last-week",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "test_completed",
+      "label": {
+        "en": "Fast.com: test completed",
+        "fr": "Fast.com : test terminé",
+        "de": "Fast.com: Test abgeschlossen",
+        "es": "Fast.com: prueba terminada"
+      },
+      "description": {
+        "en": "After every successful test, with its values. To act below a speed, add a condition on the device.",
+        "fr": "Après chaque test réussi, avec ses valeurs. Pour agir sous un débit, ajoutez une condition sur l’appareil.",
+        "de": "Nach jedem erfolgreichen Test, mit seinen Werten. Für eine Mindestgeschwindigkeit füge eine Bedingung auf das Gerät hinzu.",
+        "es": "Tras cada prueba correcta, con sus valores. Para actuar por debajo de una velocidad, añade una condición sobre el dispositivo."
+      },
+      "fields": [
+        {
+          "key": "origin",
+          "type": "select",
+          "label": {
+            "en": "Started by",
+            "fr": "Lancé par",
+            "de": "Gestartet durch",
+            "es": "Iniciada por"
+          },
+          "description": {
+            "en": "Leave empty for any test.",
+            "fr": "Laissez vide pour tous les tests.",
+            "de": "Leer lassen für jeden Test.",
+            "es": "Déjalo vacío para cualquier prueba."
+          },
+          "options": [
+            {
+              "value": "schedule",
+              "label": {
+                "en": "The schedule",
+                "fr": "La planification",
+                "de": "Den Zeitplan",
+                "es": "La programación"
+              }
+            },
+            {
+              "value": "manual",
+              "label": {
+                "en": "A person (widget, button)",
+                "fr": "Une personne (widget, bouton)",
+                "de": "Eine Person (Widget, Schaltfläche)",
+                "es": "Una persona (widget, botón)"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "download_mbps",
+          "type": "number",
+          "label": {
+            "en": "Download (Mbit/s)",
+            "fr": "Débit descendant (Mbit/s)",
+            "de": "Download (Mbit/s)",
+            "es": "Descarga (Mbit/s)"
+          }
+        },
+        {
+          "key": "upload_mbps",
+          "type": "number",
+          "label": {
+            "en": "Upload (Mbit/s)",
+            "fr": "Débit montant (Mbit/s)",
+            "de": "Upload (Mbit/s)",
+            "es": "Subida (Mbit/s)"
+          },
+          "description": {
+            "en": "Empty when the upload is not measured.",
+            "fr": "Vide quand le débit montant n’est pas mesuré.",
+            "de": "Leer, wenn der Upload nicht gemessen wird.",
+            "es": "Vacío si no se mide la subida."
+          }
+        },
+        {
+          "key": "latency_ms",
+          "type": "number",
+          "label": {
+            "en": "Latency at rest (ms)",
+            "fr": "Latence au repos (ms)",
+            "de": "Latenz im Leerlauf (ms)",
+            "es": "Latencia en reposo (ms)"
+          }
+        },
+        {
+          "key": "jitter_ms",
+          "type": "number",
+          "label": {
+            "en": "Jitter (ms)",
+            "fr": "Gigue (ms)",
+            "de": "Jitter (ms)",
+            "es": "Fluctuación (ms)"
+          }
+        },
+        {
+          "key": "loaded_latency_ms",
+          "type": "number",
+          "label": {
+            "en": "Latency under load (ms)",
+            "fr": "Latence en charge (ms)",
+            "de": "Latenz unter Last (ms)",
+            "es": "Latencia con carga (ms)"
+          },
+          "description": {
+            "en": "Empty when it could not be measured reliably.",
+            "fr": "Vide quand elle n’a pas pu être mesurée de façon fiable.",
+            "de": "Leer, wenn sie nicht zuverlässig gemessen werden konnte.",
+            "es": "Vacía si no se pudo medir de forma fiable."
+          }
+        },
+        {
+          "key": "isp",
+          "type": "string",
+          "label": {
+            "en": "Internet provider",
+            "fr": "Fournisseur d’accès",
+            "de": "Internetanbieter",
+            "es": "Proveedor de Internet"
+          }
+        },
+        {
+          "key": "client_city",
+          "type": "string",
+          "label": {
+            "en": "City seen by Netflix",
+            "fr": "Ville vue par Netflix",
+            "de": "Von Netflix erkannte Stadt",
+            "es": "Ciudad vista por Netflix"
+          }
+        },
+        {
+          "key": "server_city",
+          "type": "string",
+          "label": {
+            "en": "Server city",
+            "fr": "Ville du serveur",
+            "de": "Stadt des Servers",
+            "es": "Ciudad del servidor"
+          }
+        },
+        {
+          "key": "server_country",
+          "type": "string",
+          "label": {
+            "en": "Server country",
+            "fr": "Pays du serveur",
+            "de": "Land des Servers",
+            "es": "País del servidor"
+          }
+        },
+        {
+          "key": "data_used_mb",
+          "type": "number",
+          "label": {
+            "en": "Data used (MB)",
+            "fr": "Données utilisées (Mo)",
+            "de": "Datenvolumen (MB)",
+            "es": "Datos usados (MB)"
+          }
+        },
+        {
+          "key": "cpu_limited",
+          "type": "boolean",
+          "label": {
+            "en": "Limited by the processor",
+            "fr": "Limité par le processeur",
+            "de": "Durch den Prozessor begrenzt",
+            "es": "Limitada por el procesador"
+          }
+        },
+        {
+          "key": "duration_s",
+          "type": "number",
+          "label": {
+            "en": "Duration (s)",
+            "fr": "Durée (s)",
+            "de": "Dauer (s)",
+            "es": "Duración (s)"
+          }
+        },
+        {
+          "key": "tested_at",
+          "type": "string",
+          "label": {
+            "en": "Date of the test (ISO 8601)",
+            "fr": "Date du test (ISO 8601)",
+            "de": "Datum des Tests (ISO 8601)",
+            "es": "Fecha de la prueba (ISO 8601)"
+          }
+        },
+        {
+          "key": "origin",
+          "type": "string",
+          "label": {
+            "en": "Started by (schedule, manual)",
+            "fr": "Lancé par (schedule, manual)",
+            "de": "Gestartet durch (schedule, manual)",
+            "es": "Iniciada por (schedule, manual)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "test_failed",
+      "label": {
+        "en": "Fast.com: test failed",
+        "fr": "Fast.com : test échoué",
+        "de": "Fast.com: Test fehlgeschlagen",
+        "es": "Fast.com: prueba fallida"
+      },
+      "description": {
+        "en": "A test could not run: Internet unreachable, Fast.com refusing, or nothing transferred.",
+        "fr": "Un test n’a pas pu se faire : Internet injoignable, refus de Fast.com ou rien de transféré.",
+        "de": "Ein Test konnte nicht laufen: Internet nicht erreichbar, Fast.com lehnt ab oder nichts übertragen.",
+        "es": "Una prueba no se pudo hacer: Internet inaccesible, Fast.com la rechaza o no se transfirió nada."
+      },
+      "fields": [
+        {
+          "key": "reason",
+          "type": "select",
+          "label": {
+            "en": "Reason",
+            "fr": "Raison",
+            "de": "Grund",
+            "es": "Motivo"
+          },
+          "description": {
+            "en": "Leave empty for any failure.",
+            "fr": "Laissez vide pour tout échec.",
+            "de": "Leer lassen für jeden Fehler.",
+            "es": "Déjalo vacío para cualquier fallo."
+          },
+          "options": [
+            {
+              "value": "offline",
+              "label": {
+                "en": "Internet unreachable",
+                "fr": "Internet injoignable",
+                "de": "Internet nicht erreichbar",
+                "es": "Internet inaccesible"
+              }
+            },
+            {
+              "value": "service",
+              "label": {
+                "en": "Fast.com refused the test",
+                "fr": "Fast.com a refusé le test",
+                "de": "Fast.com hat den Test abgelehnt",
+                "es": "Fast.com rechazó la prueba"
+              }
+            },
+            {
+              "value": "measurement",
+              "label": {
+                "en": "Nothing transferred",
+                "fr": "Rien de transféré",
+                "de": "Nichts übertragen",
+                "es": "Nada transferido"
+              }
+            }
+          ],
+          "required": false
+        },
+        {
+          "key": "origin",
+          "type": "select",
+          "label": {
+            "en": "Started by",
+            "fr": "Lancé par",
+            "de": "Gestartet durch",
+            "es": "Iniciada por"
+          },
+          "description": {
+            "en": "Leave empty for any test.",
+            "fr": "Laissez vide pour tous les tests.",
+            "de": "Leer lassen für jeden Test.",
+            "es": "Déjalo vacío para cualquier prueba."
+          },
+          "options": [
+            {
+              "value": "schedule",
+              "label": {
+                "en": "The schedule",
+                "fr": "La planification",
+                "de": "Den Zeitplan",
+                "es": "La programación"
+              }
+            },
+            {
+              "value": "manual",
+              "label": {
+                "en": "A person (widget, button)",
+                "fr": "Une personne (widget, bouton)",
+                "de": "Eine Person (Widget, Schaltfläche)",
+                "es": "Una persona (widget, botón)"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason (offline, service, measurement)",
+            "fr": "Raison (offline, service, measurement)",
+            "de": "Grund (offline, service, measurement)",
+            "es": "Motivo (offline, service, measurement)"
+          }
+        },
+        {
+          "key": "message",
+          "type": "string",
+          "label": {
+            "en": "Technical message (English)",
+            "fr": "Message technique (anglais)",
+            "de": "Technische Meldung (Englisch)",
+            "es": "Mensaje técnico (inglés)"
+          }
+        },
+        {
+          "key": "consecutive_failures",
+          "type": "number",
+          "label": {
+            "en": "Failed tests in a row",
+            "fr": "Tests échoués d’affilée",
+            "de": "Fehlgeschlagene Tests in Folge",
+            "es": "Pruebas fallidas seguidas"
+          }
+        },
+        {
+          "key": "failing_since",
+          "type": "string",
+          "label": {
+            "en": "Failing since (ISO 8601)",
+            "fr": "En échec depuis (ISO 8601)",
+            "de": "Fehlerhaft seit (ISO 8601)",
+            "es": "Fallando desde (ISO 8601)"
+          }
+        },
+        {
+          "key": "failed_at",
+          "type": "string",
+          "label": {
+            "en": "Date of the failure (ISO 8601)",
+            "fr": "Date de l’échec (ISO 8601)",
+            "de": "Datum des Fehlers (ISO 8601)",
+            "es": "Fecha del fallo (ISO 8601)"
+          }
+        },
+        {
+          "key": "origin",
+          "type": "string",
+          "label": {
+            "en": "Started by (schedule, manual)",
+            "fr": "Lancé par (schedule, manual)",
+            "de": "Gestartet durch (schedule, manual)",
+            "es": "Iniciada por (schedule, manual)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "connection_restored",
+      "label": {
+        "en": "Fast.com: connection restored",
+        "fr": "Fast.com : connexion rétablie",
+        "de": "Fast.com: Verbindung wiederhergestellt",
+        "es": "Fast.com: conexión restablecida"
+      },
+      "description": {
+        "en": "Fast.com answers again after failed tests (checked every 5 minutes while they fail).",
+        "fr": "Fast.com répond à nouveau après des tests échoués (vérifié toutes les 5 minutes pendant la panne).",
+        "de": "Fast.com antwortet wieder nach fehlgeschlagenen Tests (während des Ausfalls alle 5 Minuten geprüft).",
+        "es": "Fast.com vuelve a responder tras pruebas fallidas (se comprueba cada 5 minutos durante la caída)."
+      },
+      "variables": [
+        {
+          "key": "outage_minutes",
+          "type": "number",
+          "label": {
+            "en": "Outage duration (minutes)",
+            "fr": "Durée de la panne (minutes)",
+            "de": "Dauer des Ausfalls (Minuten)",
+            "es": "Duración de la caída (minutos)"
+          },
+          "description": {
+            "en": "From the first failed test to the first answer.",
+            "fr": "Du premier test échoué à la première réponse.",
+            "de": "Vom ersten fehlgeschlagenen Test bis zur ersten Antwort.",
+            "es": "Desde la primera prueba fallida hasta la primera respuesta."
+          }
+        },
+        {
+          "key": "failed_tests",
+          "type": "number",
+          "label": {
+            "en": "Failed tests",
+            "fr": "Tests échoués",
+            "de": "Fehlgeschlagene Tests",
+            "es": "Pruebas fallidas"
+          }
+        },
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason of the outage",
+            "fr": "Raison de la panne",
+            "de": "Grund des Ausfalls",
+            "es": "Motivo de la caída"
+          }
+        },
+        {
+          "key": "failing_since",
+          "type": "string",
+          "label": {
+            "en": "Failing since (ISO 8601)",
+            "fr": "En échec depuis (ISO 8601)",
+            "de": "Fehlerhaft seit (ISO 8601)",
+            "es": "Fallando desde (ISO 8601)"
+          }
+        },
+        {
+          "key": "restored_at",
+          "type": "string",
+          "label": {
+            "en": "Restored at (ISO 8601)",
+            "fr": "Rétablie le (ISO 8601)",
+            "de": "Wiederhergestellt am (ISO 8601)",
+            "es": "Restablecida el (ISO 8601)"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "run_test",
+      "label": {
+        "en": "Fast.com: run a speed test",
+        "fr": "Fast.com : lancer un test de débit",
+        "de": "Fast.com: Geschwindigkeitstest starten",
+        "es": "Fast.com: iniciar una prueba de velocidad"
+      },
+      "description": {
+        "en": "Measures the line (15 to 40 s) and gives the values to the next actions. Raises no Fast.com trigger.",
+        "fr": "Mesure la ligne (15 à 40 s) et donne les valeurs aux actions suivantes. Ne déclenche aucun déclencheur Fast.com.",
+        "de": "Misst die Leitung (15 bis 40 s) und gibt die Werte an die nächsten Aktionen weiter. Löst keinen Fast.com-Auslöser aus.",
+        "es": "Mide la línea (de 15 a 40 s) y pasa los valores a las acciones siguientes. No activa ningún disparador de Fast.com."
+      },
+      "timeout_seconds": 120,
+      "fields": [
+        {
+          "key": "upload",
+          "type": "boolean",
+          "label": {
+            "en": "Measure the upload too",
+            "fr": "Mesurer aussi le débit montant",
+            "de": "Auch den Upload messen",
+            "es": "Medir también la subida"
+          },
+          "default": true,
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "key": "download_mbps",
+          "type": "number",
+          "label": {
+            "en": "Download (Mbit/s)",
+            "fr": "Débit descendant (Mbit/s)",
+            "de": "Download (Mbit/s)",
+            "es": "Descarga (Mbit/s)"
+          }
+        },
+        {
+          "key": "upload_mbps",
+          "type": "number",
+          "label": {
+            "en": "Upload (Mbit/s)",
+            "fr": "Débit montant (Mbit/s)",
+            "de": "Upload (Mbit/s)",
+            "es": "Subida (Mbit/s)"
+          }
+        },
+        {
+          "key": "latency_ms",
+          "type": "number",
+          "label": {
+            "en": "Latency at rest (ms)",
+            "fr": "Latence au repos (ms)",
+            "de": "Latenz im Leerlauf (ms)",
+            "es": "Latencia en reposo (ms)"
+          }
+        },
+        {
+          "key": "jitter_ms",
+          "type": "number",
+          "label": {
+            "en": "Jitter (ms)",
+            "fr": "Gigue (ms)",
+            "de": "Jitter (ms)",
+            "es": "Fluctuación (ms)"
+          }
+        },
+        {
+          "key": "loaded_latency_ms",
+          "type": "number",
+          "label": {
+            "en": "Latency under load (ms)",
+            "fr": "Latence en charge (ms)",
+            "de": "Latenz unter Last (ms)",
+            "es": "Latencia con carga (ms)"
+          }
+        },
+        {
+          "key": "isp",
+          "type": "string",
+          "label": {
+            "en": "Internet provider",
+            "fr": "Fournisseur d’accès",
+            "de": "Internetanbieter",
+            "es": "Proveedor de Internet"
+          }
+        },
+        {
+          "key": "server_city",
+          "type": "string",
+          "label": {
+            "en": "Server city",
+            "fr": "Ville du serveur",
+            "de": "Stadt des Servers",
+            "es": "Ciudad del servidor"
+          }
+        },
+        {
+          "key": "data_used_mb",
+          "type": "number",
+          "label": {
+            "en": "Data used (MB)",
+            "fr": "Données utilisées (Mo)",
+            "de": "Datenvolumen (MB)",
+            "es": "Datos usados (MB)"
+          }
+        },
+        {
+          "key": "cpu_limited",
+          "type": "boolean",
+          "label": {
+            "en": "Limited by the processor",
+            "fr": "Limité par le processeur",
+            "de": "Durch den Prozessor begrenzt",
+            "es": "Limitada por el procesador"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary (↓ … · ↑ … · … ms)",
+            "fr": "Résumé (↓ … · ↑ … · … ms)",
+            "de": "Zusammenfassung (↓ … · ↑ … · … ms)",
+            "es": "Resumen (↓ … · ↑ … · … ms)"
+          }
+        }
+      ]
+    }
+  ]
+}

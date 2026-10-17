@@ -1,0 +1,49 @@
+name: Bug report
+description: Something does not work as described in the documentation.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. The logs of the integration contain no IP address; check before posting anyway.
+  - type: input
+    id: gladys-version
+    attributes:
+      label: Gladys version
+      description: Settings → System.
+      placeholder: '5.2.1'
+    validations:
+      required: true
+  - type: input
+    id: integration-version
+    attributes:
+      label: Integration version
+      description: Integrations → Fast.com, or Settings → Supervision.
+      placeholder: '0.1.0'
+    validations:
+      required: true
+  - type: input
+    id: line
+    attributes:
+      label: Line and hardware
+      description: Type and speed of your internet line, what fast.com shows in a browser on the same network, and the machine Gladys runs on.
+      placeholder: 'Fiber 1 Gbit/s, fast.com shows 940 Mbit/s, Raspberry Pi 4'
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Logs of the integration (Settings → Supervision): click **Diagnostic** in the integration configuration first, it writes a summary without IP address (settings, last test, failure, memory). In developer mode only, `DEBUG=gladys-integration-sdk` adds the SDK debug logs.
+      render: text

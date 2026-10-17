@@ -1,0 +1,292 @@
+{
+  "_comment": "Generated from version 0.1.0. Never update without a documented migration (see test/structure.test.js).",
+  "device": {
+    "external_id": "ext:test-integration:speedtest:fast",
+    "should_poll": false,
+    "poll_frequency": null,
+    "features": [
+      {
+        "external_id": "ext:test-integration:speedtest:fast:download",
+        "category": "datarate",
+        "type": "rate",
+        "unit": "megabits-per-second",
+        "min": 0,
+        "max": 100000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:test-integration:speedtest:fast:upload",
+        "category": "datarate",
+        "type": "rate",
+        "unit": "megabits-per-second",
+        "min": 0,
+        "max": 100000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:test-integration:speedtest:fast:latency",
+        "category": "duration",
+        "type": "decimal",
+        "unit": "milliseconds",
+        "min": 0,
+        "max": 10000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:test-integration:speedtest:fast:jitter",
+        "category": "duration",
+        "type": "decimal",
+        "unit": "milliseconds",
+        "min": 0,
+        "max": 10000,
+        "read_only": true,
+        "has_feedback": false
+      },
+      {
+        "external_id": "ext:test-integration:speedtest:fast:loaded_latency",
+        "category": "duration",
+        "type": "decimal",
+        "unit": "milliseconds",
+        "min": 0,
+        "max": 10000,
+        "read_only": true,
+        "has_feedback": false
+      }
+    ]
+  },
+  "manifest": {
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "test_interval",
+        "type": "select",
+        "options": ["30", "60", "120", "180", "360", "720", "1440", "0"]
+      },
+      {
+        "key": "max_duration",
+        "type": "select",
+        "options": ["10", "15", "20", "30"]
+      },
+      {
+        "key": "measure_upload",
+        "type": "boolean"
+      },
+      {
+        "key": "language",
+        "type": "select",
+        "options": ["auto", "en", "fr", "de", "es"]
+      }
+    ],
+    "actions": ["run_test", "diagnostic"],
+    "scene_triggers": [
+      {
+        "key": "test_completed",
+        "fields": [
+          {
+            "key": "origin",
+            "options": ["schedule", "manual"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "download_mbps",
+            "type": "number"
+          },
+          {
+            "key": "upload_mbps",
+            "type": "number"
+          },
+          {
+            "key": "latency_ms",
+            "type": "number"
+          },
+          {
+            "key": "jitter_ms",
+            "type": "number"
+          },
+          {
+            "key": "loaded_latency_ms",
+            "type": "number"
+          },
+          {
+            "key": "isp",
+            "type": "string"
+          },
+          {
+            "key": "client_city",
+            "type": "string"
+          },
+          {
+            "key": "server_city",
+            "type": "string"
+          },
+          {
+            "key": "server_country",
+            "type": "string"
+          },
+          {
+            "key": "data_used_mb",
+            "type": "number"
+          },
+          {
+            "key": "cpu_limited",
+            "type": "boolean"
+          },
+          {
+            "key": "duration_s",
+            "type": "number"
+          },
+          {
+            "key": "tested_at",
+            "type": "string"
+          },
+          {
+            "key": "origin",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "test_failed",
+        "fields": [
+          {
+            "key": "reason",
+            "options": ["offline", "service", "measurement"]
+          },
+          {
+            "key": "origin",
+            "options": ["schedule", "manual"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "reason",
+            "type": "string"
+          },
+          {
+            "key": "message",
+            "type": "string"
+          },
+          {
+            "key": "consecutive_failures",
+            "type": "number"
+          },
+          {
+            "key": "failing_since",
+            "type": "string"
+          },
+          {
+            "key": "failed_at",
+            "type": "string"
+          },
+          {
+            "key": "origin",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "connection_restored",
+        "fields": [],
+        "variables": [
+          {
+            "key": "outage_minutes",
+            "type": "number"
+          },
+          {
+            "key": "failed_tests",
+            "type": "number"
+          },
+          {
+            "key": "reason",
+            "type": "string"
+          },
+          {
+            "key": "failing_since",
+            "type": "string"
+          },
+          {
+            "key": "restored_at",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "run_test",
+        "fields": ["upload"],
+        "outputs": [
+          {
+            "key": "download_mbps",
+            "type": "number"
+          },
+          {
+            "key": "upload_mbps",
+            "type": "number"
+          },
+          {
+            "key": "latency_ms",
+            "type": "number"
+          },
+          {
+            "key": "jitter_ms",
+            "type": "number"
+          },
+          {
+            "key": "loaded_latency_ms",
+            "type": "number"
+          },
+          {
+            "key": "isp",
+            "type": "string"
+          },
+          {
+            "key": "server_city",
+            "type": "string"
+          },
+          {
+            "key": "data_used_mb",
+            "type": "number"
+          },
+          {
+            "key": "cpu_limited",
+            "type": "boolean"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "widgets": [
+      {
+        "key": "speedtest",
+        "settings": [
+          {
+            "key": "chart",
+            "options": ["speeds", "latency", "none"]
+          },
+          {
+            "key": "interval",
+            "options": [
+              "last-day",
+              "last-three-days",
+              "last-week",
+              "last-month",
+              "last-three-months"
+            ]
+          }
+        ]
+      }
+    ],
+    "widget_actions": ["run_test"]
+  }
+}

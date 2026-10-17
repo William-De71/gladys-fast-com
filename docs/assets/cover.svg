@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="534" viewBox="0 0 800 534">
+  <!-- Cover of the Fast.com integration for Gladys Assistant (illustration,
+       no Netflix or Fast.com logo). Built into cover.jpg by scripts/build-cover.sh. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1b2e"/>
+      <stop offset="1" stop-color="#1b3a63"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4f8cff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4f8cff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="534" fill="url(#bg)"/>
+  <g stroke="#213f66" stroke-width="1">
+    <path d="M0 89 H800 M0 178 H800 M0 267 H800 M0 356 H800 M0 445 H800"/>
+    <path d="M100 0 V534 M200 0 V534 M300 0 V534 M400 0 V534 M500 0 V534 M600 0 V534 M700 0 V534"/>
+  </g>
+  <ellipse cx="260" cy="280" rx="260" ry="200" fill="url(#glow)"/>
+
+  <!-- the speed card -->
+  <rect x="74" y="104" width="360" height="350" rx="22" fill="#000000" opacity="0.28"/>
+  <rect x="70" y="92" width="360" height="350" rx="22" fill="#ffffff"/>
+
+  <!-- gauge: track, value arc, needle -->
+  <path d="M130 270 A120 120 0 0 1 370 270" fill="none" stroke="#e3e8ef" stroke-width="22" stroke-linecap="round"/>
+  <path d="M130 270 A120 120 0 0 1 345 199" fill="none" stroke="#2f6fde" stroke-width="22" stroke-linecap="round"/>
+  <path d="M250 270 L330 212" stroke="#273449" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="250" cy="270" r="13" fill="#273449"/>
+  <g fill="#9aa6b8">
+    <circle cx="130" cy="300" r="4"/>
+    <circle cx="370" cy="300" r="4"/>
+  </g>
+
+  <!-- the big number and its unit -->
+  <g font-family="DejaVu Sans, Verdana, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="250" y="342" font-size="46" fill="#273449">940</text>
+    <text x="250" y="368" font-size="16" fill="#9aa6b8" font-weight="400">Mbit/s</text>
+  </g>
+
+  <!-- download / upload / latency chips -->
+  <rect x="98" y="388" width="96" height="30" rx="15" fill="#e4eefd"/>
+  <path d="M114 396 v14 M108 404 l6 6 l6 -6" stroke="#2f6fde" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="128" y="399" width="52" height="8" rx="4" fill="#2f6fde"/>
+  <rect x="202" y="388" width="96" height="30" rx="15" fill="#e2f5e6"/>
+  <path d="M218 410 v-14 M212 402 l6 -6 l6 6" stroke="#2fb344" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="232" y="399" width="52" height="8" rx="4" fill="#2fb344"/>
+  <rect x="306" y="388" width="96" height="30" rx="15" fill="#fff1d6"/>
+  <circle cx="322" cy="403" r="7" fill="none" stroke="#f59f00" stroke-width="3"/>
+  <path d="M322 399 v4 l3 2" stroke="#f59f00" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="336" y="399" width="52" height="8" rx="4" fill="#f59f00"/>
+
+  <!-- link to Gladys -->
+  <g fill="#2fd38a">
+    <circle cx="450" cy="267" r="3.5"/><circle cx="467" cy="267" r="3.5"/>
+    <circle cx="484" cy="267" r="3.5"/><circle cx="501" cy="267" r="3.5"/>
+    <circle cx="518" cy="267" r="3.5"/><circle cx="535" cy="267" r="3.5"/>
+    <circle cx="552" cy="267" r="3.5"/>
+  </g>
+  <circle cx="640" cy="267" r="62" fill="#0f2442" stroke="#7fb2ff" stroke-width="4"/>
+  <path d="M610 270 L640 244 L670 270" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M620 262 V292 H660 V262" fill="none" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="634" y="276" width="12" height="16" fill="#ffffff"/>
+
+  <g font-family="DejaVu Sans, Verdana, sans-serif" text-anchor="middle">
+    <text x="640" y="380" font-size="32" font-weight="700" fill="#ffffff">Fast.com</text>
+    <text x="640" y="412" font-size="18" fill="#a9c4ea">Gladys Assistant</text>
+  </g>
+</svg>
