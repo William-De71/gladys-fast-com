@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-17
 
 ### Added
 
@@ -18,3 +18,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Dashboard widget: last values, history of the speeds or of the latency, latency under load, jitter, server, data used, next test and a "Run a test" button.
 - Configuration actions: run a test now and diagnostic (a summary in the logs, without IP address).
 - English, French, German and Spanish everywhere: settings, device, widget, scenes and documentation.
+
+[0.1.0]: https://github.com/William-De71/gladys-fast-com/releases/tag/v0.1.0
