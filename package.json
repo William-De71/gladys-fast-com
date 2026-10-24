@@ -1,6 +1,6 @@
 {
   "name": "gladys-fast-com",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "External Gladys Assistant integration for Fast.com, the Netflix speed test: download, upload, latency and jitter on a schedule, a dashboard widget, scene triggers and actions.",
   "homepage": "https://github.com/William-De71/gladys-fast-com",

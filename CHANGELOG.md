@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.1.1] - 2026-10-24
+
+### Security
+
+- **security:** build the image on Node.js 24.22.1 or later ([ede712b](https://github.com/William-De71/gladys-fast-com/commit/ede712b18b7b44f656ea4c8c7e95b31c1e2b9d5b))
+
 ## [0.1.0] - 2026-10-17
 
 ### Added
@@ -19,4 +25,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Configuration actions: run a test now and diagnostic (a summary in the logs, without IP address).
 - English, French, German and Spanish everywhere: settings, device, widget, scenes and documentation.
 
+[0.1.1]: https://github.com/William-De71/gladys-fast-com/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-fast-com/releases/tag/v0.1.0
