@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.2.0] - 2026-10-25
+
+### Added
+
+- require Gladys 5.3 and declare catalog keywords ([cf5c89e](https://github.com/William-De71/gladys-fast-com/commit/cf5c89efbf663b52603c6db0e64f504334990cf2))
+
 ## [0.1.1] - 2026-10-24
 
 ### Security
@@ -25,5 +31,6 @@ each release from the Conventional Commits: do not edit it by hand.
 - Configuration actions: run a test now and diagnostic (a summary in the logs, without IP address).
 - English, French, German and Spanish everywhere: settings, device, widget, scenes and documentation.
 
+[0.2.0]: https://github.com/William-De71/gladys-fast-com/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/William-De71/gladys-fast-com/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-fast-com/releases/tag/v0.1.0
