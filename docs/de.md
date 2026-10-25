@@ -12,7 +12,7 @@ Transport: **Cloud**. Der Testverkehr läuft zwischen deiner Leitung und den Net
 
 ## Voraussetzungen
 
-- Gladys 5.1.0 oder neuer.
+- Gladys 5.3.0 oder neuer.
 - Eine Internetverbindung. Ein Test überträgt auf einer schnellen Leitung viele Daten: in unseren Messungen 1,2 bis 1,4 GB bei 1 Gbit/s (beide Richtungen), auf einer langsameren Leitung entsprechend weniger. Wähle bei einem begrenzten Tarif oder 4G ein langes Intervall oder deaktiviere den Upload.
 - Gladys misst über **seine eigene Netzwerkverbindung**: Läuft es im WLAN oder an einem 100-Mbit/s-Port, begrenzt diese das Ergebnis.
 

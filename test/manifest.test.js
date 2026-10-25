@@ -35,7 +35,7 @@ test('a device integration, in lockstep with package.json, at 0.x until 1.0.0 is
   assert.deepEqual(manifest.categories, ['network', 'services']);
 });
 
-test('cloud transport only, no permission, Gladys 5.1.0 for the widget and the scenes', () => {
+test('cloud transport only, no permission, Gladys 5.3.0 for the catalog fields', () => {
   assert.deepEqual(manifest.transports, ['cloud']);
   assert.doesNotMatch(source('../src/app.js'), /GLADYS_PREFER_LOCAL/);
   for (const key of ['location', 'network_wake', 'containers', 'network_discovery', 'webhooks']) {
@@ -43,7 +43,7 @@ test('cloud transport only, no permission, Gladys 5.1.0 for the widget and the s
   }
   // No button form (that would need 5.2.0).
   assert.doesNotMatch(source('../src/widgets.js'), /fields:/);
-  assert.equal(manifest.gladys_version, '>=5.1.0');
+  assert.equal(manifest.gladys_version, '>=5.3.0');
 });
 
 test('declares exactly the scene triggers, actions and widgets the code handles', () => {
@@ -147,4 +147,20 @@ test('no host other than Fast.com, Netflix and GitHub in the code', () => {
     // the User-Agent points at the repository
     'github.com',
   ]);
+});
+
+test('catalog fields of Gladys 5.3: search keywords and countries', () => {
+  assert.ok(Array.isArray(manifest.keywords), 'keywords is a list');
+  assert.ok(manifest.keywords.length >= 1 && manifest.keywords.length <= 10, '1 to 10 keywords');
+  for (const keyword of manifest.keywords) {
+    assert.ok(
+      keyword.trim().length >= 2 && keyword.trim().length <= 30,
+      `"${keyword}": 2 to 30 chars`,
+    );
+  }
+  const normalized = manifest.keywords.map((keyword) => keyword.trim().toLowerCase());
+  assert.equal(new Set(normalized).size, normalized.length, 'keywords are unique');
+  assert.ok(!normalized.includes(manifest.name.toLowerCase()), 'the name is already searched');
+  // Usable anywhere: no country restriction.
+  assert.equal(manifest.countries, undefined);
 });

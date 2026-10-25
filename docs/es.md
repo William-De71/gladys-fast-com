@@ -12,7 +12,7 @@ Transporte: **cloud**. El tráfico de la prueba va entre tu línea y los servido
 
 ## Requisitos
 
-- Gladys 5.1.0 o posterior.
+- Gladys 5.3.0 o posterior.
 - Una conexión a Internet. Una prueba mueve muchos datos en una línea rápida: de 1,2 a 1,4 GB a 1 Gbit/s en nuestras mediciones (ambos sentidos), proporcionalmente menos en una línea más lenta. Con una conexión limitada o 4G, elige un intervalo largo o desactiva la subida.
 - Gladys mide a través de **su propia conexión de red**: si funciona por Wi-Fi, o en un puerto de red de 100 Mbit/s, es eso lo que limita el resultado.
 

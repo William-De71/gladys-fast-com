@@ -12,7 +12,7 @@ Transport: **cloud**. The test traffic goes between your line and the Netflix se
 
 ## Requirements
 
-- Gladys 5.1.0 or later.
+- Gladys 5.3.0 or later.
 - An internet connection. A test moves a lot of data on a fast line: 1.2 to 1.4 GB at 1 Gbit/s in our measurements (both directions), proportionally less on a slower line. On a capped or 4G connection, choose a long interval or disable the upload.
 - Gladys measures through **its own network link**: if it runs on Wi-Fi, or on a 100 Mbit/s network port, that is what limits the result.
 

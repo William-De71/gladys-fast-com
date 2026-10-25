@@ -12,7 +12,7 @@ Transport : **cloud**. Le trafic du test passe entre votre ligne et les serveurs
 
 ## Prérequis
 
-- Gladys 5.1.0 ou plus récent.
+- Gladys 5.3.0 ou plus récent.
 - Une connexion Internet. Un test consomme beaucoup sur une ligne rapide : 1,2 à 1,4 Go à 1 Gbit/s dans nos mesures (deux sens), proportionnellement moins sur une ligne plus lente. Sur une connexion limitée ou 4G, choisissez un intervalle long ou désactivez le montant.
 - Gladys mesure à travers **sa propre liaison réseau** : s’il est en Wi-Fi, ou branché sur un port réseau à 100 Mbit/s, c’est elle qui limite le résultat.
 

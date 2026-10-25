@@ -5,7 +5,7 @@
 [![Lizenz: Apache-2.0](https://img.shields.io/badge/Lizenz-Apache--2.0-blue.svg)](LICENSE)
 [![Neueste Version](https://img.shields.io/github/v/release/William-De71/gladys-fast-com?sort=semver)](https://github.com/William-De71/gladys-fast-com/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-fast-com/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-fast-com/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.0-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Fast.com für Gladys Assistant](cover.jpg)
 
@@ -89,7 +89,7 @@ Nicht umgesetzt: die Wahl des Servers (Fast.com wählt ihn), ein Auslöser „Ge
 
 ## Voraussetzungen
 
-- Gladys **5.1.0** oder neuer (ältere Versionen können die Integration nicht installieren: Widget und Szenen).
+- Gladys **5.3.0** oder neuer (ältere Versionen können die Integration nicht installieren: Widget, Szenen, Katalog-Suchbegriffe von Gladys 5.3).
 - Eine Internetverbindung; für häufige Tests auf einer schnellen Leitung eine Verbindung ohne Datenlimit.
 
 ## Installation
